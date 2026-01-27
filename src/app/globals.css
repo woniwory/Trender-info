@@ -1,26 +1,478 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
 @import "tailwindcss";
 
+@theme {
+  --color-gold: #D4AF37;
+  --color-gold-light: #F1D592;
+  --color-deep-black: #050505;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #050505;
+  --foreground: #ffffff;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-weight: 700;
+}
+
+.glass-morphism {
+  background: rgba(5, 5, 5, 0.8);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.gold-gradient {
+  background: linear-gradient(135deg, #D4AF37 0%, #F1D592 50%, #D4AF37 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Keyword Scroll Animation - Split Screen */
+.keyword-container {
+  height: 350vh;
+  position: relative;
+  background-color: #050505;
+}
+
+.keyword-split {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8rem;
+  padding: 0 5%;
+  overflow: hidden;
+}
+
+.keyword-list {
+  flex: 0 0 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.keyword-video-fixed {
+  flex: 0 0 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 2000px;
+}
+
+.keyword-item {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #333333;
+  transition: all 0.4s ease;
+  margin: 1.2rem 0;
+  opacity: 0.5;
+}
+
+.keyword-item.active {
+  color: #ffffff;
+  opacity: 1;
+  transform: translateX(30px);
+}
+
+.keyword-item.gold {
+  color: var(--color-gold);
+}
+
+/* Mobile Responsive - Keyword Section */
+@media (max-width: 1024px) {
+  .keyword-split {
+    flex-direction: column-reverse;
+    gap: 2rem;
+    padding: 2rem 1rem;
+  }
+
+  .keyword-list {
+    flex: none;
+    width: 100%;
+    align-items: center;
+    padding-bottom: 1rem;
+  }
+
+  .keyword-video-fixed {
+    flex: none;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .keyword-item {
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+    text-align: center;
+  }
+
+  .keyword-item.active {
+    transform: translateX(0) scale(1.1);
+  }
+}
+
+@media (max-width: 640px) {
+  .keyword-container {
+    height: 500vh;
+  }
+
+  .keyword-item {
+    font-size: 1.2rem;
+    margin: 0.4rem 0;
+  }
+}
+
+
+/* Device Mockup - Slightly Wider Elongated Phone Look */
+.device-frame {
+  position: relative;
+  width: 440px;
+  height: 780px;
+  background: #000;
+  border: 12px solid #1c1c1c;
+  border-radius: 3.2rem;
+  overflow: hidden;
+  box-shadow: 0 40px 80px -15px rgba(0, 0, 0, 0.7),
+    0 0 30px rgba(212, 175, 55, 0.08);
+  transform: rotateY(-5deg) rotateX(2deg);
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.device-frame:hover {
+  transform: rotateY(0deg) rotateX(0deg);
+}
+
+.device-screen {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* Mobile Responsive - Device Frame */
+@media (max-width: 1024px) {
+  .device-frame {
+    width: 260px;
+    height: 520px;
+    border-width: 8px;
+    border-radius: 2rem;
+    transform: none;
+  }
+
+  .device-frame:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .device-frame {
+    width: 220px;
+    height: 440px;
+    border-width: 6px;
+    border-radius: 1.5rem;
+  }
+}
+
+
+
+.logo-center-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+/* High-Visibility Gold Snake Border Animation */
+.btn-shiny {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.8rem;
+  font-weight: 900;
+  /* Extra Bold */
+  color: #ffffff !important;
+  background: #000;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  z-index: 1;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+}
+
+/* The Animated Border */
+.btn-shiny::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  /* Border thickness */
+  padding: 2px;
+  background: linear-gradient(90deg,
+      #D4AF37,
+      #F1D592,
+      #ffffff,
+      #F1D592,
+      #D4AF37);
+  background-size: 200% auto;
+  border-radius: 9999px;
+  z-index: -1;
+  animation: snake-rotate 2s linear infinite;
+}
+
+/* Inner Background to keep text clear */
+.btn-shiny::after {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  background: #000;
+  border-radius: 9999px;
+  z-index: -1;
+  transition: background 0.3s;
+}
+
+@keyframes snake-rotate {
+  0% {
+    background-position: 0% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.btn-shiny:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+}
+
+.btn-shiny:hover::after {
+  background: #111;
+}
+
+/* Instagram Brand Button */
+.btn-insta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  color: #fff !important;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(214, 36, 159, 0.3);
+}
+
+.btn-insta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(214, 36, 159, 0.5);
+  filter: brightness(1.1);
+}
+
+/* Survey Section Styles */
+.survey-card {
+  background: linear-gradient(145deg, #0a0a0a, #111) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5) !important;
+}
+
+.survey-glow-button {
+  background: #ffffff !important;
+  color: #000 !important;
+  font-weight: 800;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.survey-glow-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
+}
+
+/* Floating Top Button */
+.btn-top {
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background: rgba(191, 219, 254, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.btn-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.btn-top:hover {
+  background: rgba(191, 219, 254, 1);
+  transform: translateY(-5px);
+}
+
+/* Interactive Mockup UI */
+.live-mockup {
+  width: 100%;
+  height: 100%;
+  background: #f8f9fa;
+  color: #000 !important;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  font-family: sans-serif;
+}
+
+.mockup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mockup-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.mockup-main-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  background: #3b82f6;
+  border-radius: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.mockup-text-group h3 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin: 0;
+  color: #000;
+}
+
+.mockup-text-group p {
+  font-size: 0.75rem;
+  color: #666;
+  margin: 0.2rem 0 0;
+}
+
+.mockup-refresh {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #4b5563;
+}
+
+.mockup-scroll-container {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding: 0.5rem 0.2rem 1rem;
+  scrollbar-width: thin;
+  scrollbar-color: #ddd transparent;
+}
+
+.mockup-scroll-container::-webkit-scrollbar {
+  height: 4px;
+}
+
+.mockup-scroll-container::-webkit-scrollbar-thumb {
+  background: #ddd;
+  border-radius: 10px;
+}
+
+.mockup-item-card {
+  flex: 0 0 140px;
+  background: #fff;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f0f0f0;
+  display: flex;
+  flex-direction: column;
+}
+
+.mockup-item-img {
+  width: 100%;
+  height: 90px;
+  position: relative;
+  background: #eee;
+}
+
+.mockup-item-name {
+  padding: 0.6rem;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #111;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mockup-plus-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  background: #3b82f6;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  z-index: 10;
 }
