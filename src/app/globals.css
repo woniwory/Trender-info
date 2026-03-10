@@ -2,9 +2,13 @@
 @import "tailwindcss";
 
 @theme {
-  --color-gold: #D4AF37;
-  --color-gold-light: #F1D592;
+  --color-trender-purple: #6614F2;
+  --color-trender-blue: #5B5CFF;
+  --color-trender-red: #FF6B6B;
+  --color-gold: #6614F2;
+  --color-gold-light: #5B5CFF;
   --color-deep-black: #050505;
+  --font-sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 }
 
 :root {
@@ -34,10 +38,18 @@ h3 {
 }
 
 .gold-gradient {
-  background: linear-gradient(135deg, #D4AF37 0%, #F1D592 50%, #D4AF37 100%);
+  background: linear-gradient(90deg, #6614F2 0%, #5B5CFF 30%, #FF6B6B 60%, #5B5CFF 85%, #6614F2 100%);
+  background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
 }
 
 /* Keyword Scroll Animation - Split Screen */
@@ -85,13 +97,14 @@ h3 {
 }
 
 .keyword-item.active {
-  color: #ffffff;
+  background: linear-gradient(90deg, #6614F2 0%, #5B5CFF 30%, #FF6B6B 60%, #5B5CFF 85%, #6614F2 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   opacity: 1;
   transform: translateX(30px);
-}
-
-.keyword-item.gold {
-  color: var(--color-gold);
+  animation: shine 3s linear infinite;
 }
 
 /* Mobile Responsive - Keyword Section */
@@ -148,7 +161,7 @@ h3 {
   border-radius: 3.2rem;
   overflow: hidden;
   box-shadow: 0 40px 80px -15px rgba(0, 0, 0, 0.7),
-    0 0 30px rgba(212, 175, 55, 0.08);
+    0 0 30px rgba(102, 20, 242, 0.15);
   transform: rotateY(-5deg) rotateX(2deg);
   transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -230,7 +243,7 @@ h3 {
   z-index: 1;
   border: none;
   cursor: pointer;
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+  box-shadow: 0 0 20px rgba(102, 20, 242, 0.3);
 }
 
 /* The Animated Border */
@@ -241,11 +254,11 @@ h3 {
   /* Border thickness */
   padding: 2px;
   background: linear-gradient(90deg,
-      #D4AF37,
-      #F1D592,
-      #ffffff,
-      #F1D592,
-      #D4AF37);
+      #6614F2,
+      #5B5CFF,
+      #FF6B6B,
+      #5B5CFF,
+      #6614F2);
   background-size: 200% auto;
   border-radius: 9999px;
   z-index: -1;
@@ -275,7 +288,7 @@ h3 {
 
 .btn-shiny:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+  box-shadow: 0 0 30px rgba(102, 20, 242, 0.6);
 }
 
 .btn-shiny:hover::after {
@@ -307,17 +320,7 @@ h3 {
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5) !important;
 }
 
-.survey-glow-button {
-  background: #ffffff !important;
-  color: #000 !important;
-  font-weight: 800;
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
 
-.survey-glow-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
-}
 
 /* Floating Top Button */
 .btn-top {

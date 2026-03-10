@@ -4,13 +4,13 @@ import Image from "next/image";
 import { useEffect, useState, useRef } from "react";
 
 const KEYWORDS = [
-  { text: "#성수동_핫플", color: "white", image: "/screen_hotplace.png" },
-  { text: "#셀럽_추천코스", color: "white", image: "/screen_celeb.png" },
-  { text: "#AI_큐레이션", color: "white", image: "/screen_ai.png" },
-  { text: "#나만의_여정", color: "gold", image: "/screen_route.png" },
-  { text: "#인스타그램_연동", color: "white", image: "/screen_instagram.png" },
-  { text: "#친구와_함께", color: "white", image: "/screen_friends.png" },
-  { text: "#점주님들도_쉽게", color: "white", image: "/screen_owner.png" },
+  { text: "#성수동_핫플", image: "/screen_hotplace.png" },
+  { text: "#셀럽_추천코스", image: "/screen_celeb.png" },
+  { text: "#AI_큐레이션", image: "/screen_ai.png" },
+  { text: "#나만의_여정", image: "/screen_route.png" },
+  { text: "#인스타그램_연동", image: "/screen_instagram.png" },
+  { text: "#친구와_함께", image: "/screen_friends.png" },
+  { text: "#점주님들도_쉽게", image: "/screen_owner.png" },
 ];
 
 export default function Home() {
@@ -54,7 +54,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-[#050505] text-white selection:bg-gold selection:text-black font-sans">
+    <div className="min-h-screen bg-[#050505] text-white selection:bg-trender-purple selection:text-white font-sans">
       {/* Navigation */}
       <nav className="fixed top-0 z-50 flex w-full items-center justify-between px-4 md:px-8 py-4 md:py-6 glass-morphism">
         <div className="flex items-center">
@@ -83,8 +83,8 @@ export default function Home() {
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-6 text-[15px] font-medium">
-          <a href="#service" className="hover:text-gold transition-colors">Service</a>
-          <a href="#features" className="hover:text-gold transition-colors">Features</a>
+          <a href="#service" className="hover:text-trender-purple transition-colors">Service</a>
+          <a href="#features" className="hover:text-trender-purple transition-colors">Features</a>
           <a
             href="https://www.instagram.com/trendermap_official/"
             target="_blank"
@@ -103,22 +103,22 @@ export default function Home() {
       <section className="relative flex min-h-screen flex-col items-center justify-center px-8 text-center overflow-hidden">
         <div className="animate-fade-in logo-center-container">
           <Image
-            src="/logo_full.png"
-            alt="Trender Full Logo"
-            width={500}
+            src="/logo_final.png"
+            alt="Trender Logo"
+            width={400}
             height={400}
             className="mb-8"
             priority
           />
           <div className="max-w-4xl">
-            <h1 className="text-4xl font-extrabold leading-[1.3] md:text-6xl mb-6 px-4">
+            <h1 className="text-4xl font-extrabold leading-[1.3] md:text-6xl mb-6 px-4 max-w-4xl mx-auto break-keep whitespace-pre-line">
               <span className="gold-gradient">
-                성수부터 전 세계 핫플까지, <br className="md:hidden" /> 당신만의 완벽한 여정을 그리세요.
+                "당신의 취향이 목적지가 되는 순간"
               </span>
             </h1>
           </div>
         </div>
-        <div className="absolute top-1/2 left-1/2 -z-10 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/5 blur-[150px]"></div>
+        <div className="absolute top-1/2 left-1/2 -z-10 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-trender-purple/10 blur-[150px]"></div>
       </section>
 
       {/* Split Keyword/Video Scroll Section */}
@@ -128,7 +128,7 @@ export default function Home() {
             {KEYWORDS.map((keyword, i) => (
               <span
                 key={i}
-                className={`keyword-item ${activeIndex === i ? "active" : ""} ${activeIndex === i && keyword.color === "gold" ? "gold" : ""}`}
+                className={`keyword-item ${activeIndex === i ? "active" : ""}`}
               >
                 {keyword.text}
               </span>
@@ -156,9 +156,9 @@ export default function Home() {
       {/* Description Section */}
       <section className="px-8 py-56 bg-zinc-950">
         <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-3xl md:text-5xl font-bold leading-tight mb-16">
-            평범한 이동을 <br className="md:hidden" />
-            <span className="text-gold">특별한 경험</span>으로 디자인합니다.
+          <h2 className="text-3xl md:text-5xl font-bold leading-[1.4] mb-16 px-4 max-w-4xl mx-auto break-keep whitespace-pre-line">
+            성수부터 전 세계 핫플까지,{"\n"}
+            <span className="gold-gradient">당신만의 완벽한 여정</span>을 그리세요.
           </h2>
           <div className="space-y-10 text-zinc-400 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
             <p>
@@ -194,10 +194,10 @@ export default function Home() {
                 icon: "🤝"
               }
             ].map((feature, i) => (
-              <div key={i} className="bg-zinc-900/40 p-12 rounded-[2.5rem] border border-white/5 hover:border-gold/20 transition-all group text-center">
+              <div key={i} className="bg-zinc-800/60 p-12 rounded-[2.5rem] border border-white/10 hover:border-trender-purple/30 transition-all group text-center shadow-2xl backdrop-blur-md">
                 <div className="text-5xl mb-8 group-hover:scale-110 transition-transform inline-block">{feature.icon}</div>
                 <h3 className="text-2xl font-bold mb-4">{feature.title}</h3>
-                <p className="text-zinc-500 leading-relaxed mx-auto max-w-[260px]">{feature.desc}</p>
+                <p className="text-zinc-400 leading-relaxed mx-auto max-w-[260px]">{feature.desc}</p>
               </div>
             ))}
           </div>
@@ -215,7 +215,7 @@ export default function Home() {
             <a
               href="https://bizcowork.co.kr/kanosurvey/171823"
               target="_blank"
-              className="px-12 py-5 rounded-full survey-glow-button text-xl hover:scale-105 transition-transform"
+              className="px-12 py-5 rounded-full bg-trender-blue text-white font-bold text-xl hover:scale-105 transition-transform shadow-lg shadow-trender-blue/20"
             >
               설문 참여하기
             </a>
@@ -223,7 +223,7 @@ export default function Home() {
               설문조사 종료일: <span className="text-zinc-300">2026-08-21</span>
             </p>
           </div>
-          <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 blur-[80px] -translate-y-1/2 translate-x-1/2 rounded-full"></div>
+          <div className="absolute top-0 right-0 w-64 h-64 bg-trender-blue/10 blur-[80px] -translate-y-1/2 translate-x-1/2 rounded-full"></div>
         </div>
       </section>
 
@@ -239,10 +239,6 @@ export default function Home() {
       </button>
 
       <footer className="border-t border-white/5 px-8 py-16 text-center text-zinc-600">
-        <div className="flex items-center justify-center gap-2 mb-6">
-          <Image src="/logo.png" alt="Logo" width={24} height={24} className="opacity-30 grayscale" />
-          <span className="font-bold tracking-widest text-xs uppercase">Trender</span>
-        </div>
         <p className="text-sm">© 2026 Trender. All rights reserved.</p>
       </footer>
     </div>

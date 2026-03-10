@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript" src="https://unpkg.com/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
+    <style>
+        body {
+            background: #f0f0f0;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+            align-items: center;
+            font-family: sans-serif;
+        }
+
+        .qr-card {
+            background: white;
+            padding: 50px;
+            border-radius: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .label {
+            font-weight: bold;
+            font-size: 30px;
+            color: #111;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="qr-card">
+        <div id="intro-qr"></div>
+        <div class="label">Intro Site</div>
+    </div>
+
+    <div class="qr-card">
+        <div id="insta-qr"></div>
+        <div class="label">Instagram</div>
+    </div>
+
+    <script type="text/javascript">
+        // Final logo with white outlines for high contrast
+        const logoUrl = "/logo_final.png";
+
+        const commonCommon = {
+            width: 800,
+            height: 800,
+            type: "canvas",
+            qrOptions: {
+                typeNumber: 0,
+                mode: "Byte",
+                errorCorrectionLevel: "H" // Highest error correction
+            },
+            imageOptions: {
+                hideBackgroundDots: true,
+                imageSize: 0.3, // Reduced to preserve more data
+                margin: 0,
+                crossOrigin: "anonymous"
+            },
+            dotsOptions: {
+                type: "square" // Standard square for 100% Android compatibility
+            },
+            cornersSquareOptions: {
+                type: "square" // Standard square for 100% Android compatibility
+            },
+            backgroundOptions: { color: "#ffffff" }
+        };
+
+        const intro = new QRCodeStyling({
+            ...commonCommon,
+            data: "https://trender-intro.vercel.app/",
+            image: logoUrl,
+            dotsOptions: { ...commonCommon.dotsOptions, color: "#6614F2" },
+            cornersSquareOptions: { ...commonCommon.cornersSquareOptions, color: "#6614F2" }
+        });
+
+        const insta = new QRCodeStyling({
+            ...commonCommon,
+            data: "https://www.instagram.com/trendermap_official/",
+            image: logoUrl,
+            dotsOptions: {
+                ...commonCommon.dotsOptions,
+                gradient: {
+                    type: "linear",
+                    rotation: 45,
+                    colorStops: [
+                        { offset: 0, color: "#fdf497" },
+                        { offset: 0.5, color: "#d6249f" },
+                        { offset: 1, color: "#285AEB" }
+                    ]
+                }
+            },
+            cornersSquareOptions: {
+                ...commonCommon.cornersSquareOptions,
+                color: "#d6249f"
+            }
+        });
+
+        intro.append(document.getElementById("intro-qr"));
+        insta.append(document.getElementById("insta-qr"));
+
+        window.onload = () => {
+            setTimeout(() => {
+                intro.update();
+                insta.update();
+            }, 1000); // Wait for logo to load
+        };
+    </script>
+</body>
+
+</html>
