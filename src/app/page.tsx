@@ -100,18 +100,18 @@ export default function Home() {
       </nav>
 
       {/* Hero Section with Central Logo */}
-      <section className="relative flex min-h-screen flex-col items-center justify-center px-8 text-center overflow-hidden">
+      <section className="relative z-20 bg-[#050505] flex min-h-screen flex-col items-center justify-center px-8 py-24 text-center overflow-hidden">
         <div className="animate-fade-in flex flex-col items-center justify-center text-center">
           <Image
             src="/logo_white.png"
             alt="Trender Logo"
             width={400}
             height={400}
-            className="mb-8 w-auto h-auto max-h-[300px]"
+            className="mb-8 w-auto h-auto max-h-[30vh] min-h-[150px]"
             priority
           />
           <div className="max-w-4xl">
-            <h1 className="text-2xl md:text-4xl font-extrabold leading-[1.3] px-4 break-keep whitespace-pre-line">
+            <h1 className="text-2xl md:text-5xl font-extrabold leading-[1.3] px-4 break-keep whitespace-pre-line">
               <span className="gold-gradient">
                 "당신의 취향이 목적지가 되는 순간"
               </span>
