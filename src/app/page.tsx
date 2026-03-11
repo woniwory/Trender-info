@@ -59,11 +59,11 @@ export default function Home() {
       <nav className="fixed top-0 z-50 flex w-full items-center justify-between px-4 md:px-8 py-4 md:py-6 glass-morphism">
         <div className="flex items-center">
           <Image
-            src="/logo_full_new.png"
+            src="/logo_nav_wide.png"
             alt="Trender Logo"
-            width={150}
+            width={180}
             height={40}
-            className="h-8 md:h-9 w-auto invert"
+            className="h-8 md:h-10 w-auto"
           />
         </div>
 
@@ -101,17 +101,17 @@ export default function Home() {
 
       {/* Hero Section with Central Logo */}
       <section className="relative flex min-h-screen flex-col items-center justify-center px-8 text-center overflow-hidden">
-        <div className="animate-fade-in logo-center-container">
+        <div className="animate-fade-in flex flex-col items-center justify-center text-center">
           <Image
-            src="/logo_final.png"
+            src="/logo_white.png"
             alt="Trender Logo"
             width={400}
             height={400}
-            className="mb-8"
+            className="mb-8 w-auto h-auto max-h-[300px]"
             priority
           />
           <div className="max-w-4xl">
-            <h1 className="text-4xl font-extrabold leading-[1.3] md:text-6xl mb-6 px-4 max-w-4xl mx-auto break-keep whitespace-pre-line">
+            <h1 className="text-3xl font-extrabold leading-[1.3] md:text-5xl px-4 break-keep whitespace-pre-line">
               <span className="gold-gradient">
                 "당신의 취향이 목적지가 되는 순간"
               </span>
@@ -122,31 +122,36 @@ export default function Home() {
       </section>
 
       {/* Split Keyword/Video Scroll Section */}
-      <section ref={containerRef} className="keyword-container">
+      <section id="service" ref={containerRef} className="keyword-container">
         <div className="keyword-split">
-          <div className="keyword-list">
-            {KEYWORDS.map((keyword, i) => (
-              <span
-                key={i}
-                className={`keyword-item ${activeIndex === i ? "active" : ""}`}
-              >
-                {keyword.text}
-              </span>
-            ))}
-          </div>
+          <div className="keyword-card card-shiny w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center gap-12 md:gap-24 p-8 md:p-16 rounded-[2.5rem] md:rounded-[4rem] overflow-visible">
+            <div className="keyword-list">
+              {KEYWORDS.map((keyword, i) => (
+                <span
+                  key={i}
+                  className={`keyword-item ${activeIndex === i ? "active" : ""}`}
+                >
+                  {keyword.text}
+                </span>
+              ))}
+            </div>
 
-          <div className="keyword-video-fixed">
-            <div className="device-frame">
-              <div className="device-screen flex items-center justify-center bg-black">
-                {KEYWORDS.map((keyword, i) => (
-                  <Image
-                    key={i}
-                    src={keyword.image}
-                    alt={keyword.text}
-                    fill
-                    className={`object-fill transition-opacity duration-500 ${activeIndex === i ? "opacity-100" : "opacity-0"}`}
-                  />
-                ))}
+            <div className="keyword-video-fixed">
+              <div className="device-frame">
+                <div className="device-frame-buttons" />
+                <div className="device-frame-power" />
+                <div className="device-screen flex items-center justify-center bg-black">
+                  <div className="dynamic-island" />
+                  {KEYWORDS.map((keyword, i) => (
+                    <Image
+                      key={i}
+                      src={keyword.image}
+                      alt={keyword.text}
+                      fill
+                      className={`object-fill transition-opacity duration-500 ${activeIndex === i ? "opacity-100" : "opacity-0"}`}
+                    />
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -160,14 +165,14 @@ export default function Home() {
             성수부터 전 세계 핫플까지,{"\n"}
             <span className="gold-gradient">당신만의 완벽한 여정</span>을 그리세요.
           </h2>
-          <div className="space-y-10 text-zinc-400 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
+          <div className="space-y-12 text-zinc-400 text-xl md:text-2xl leading-relaxed max-w-4xl mx-auto">
             <p>
-              트렌더(Trender)는 인스타그램 핫플레이스와 셀럽의 리얼 방문 데이터를 기반으로 <br className="hidden md:block" />
-              당신의 취향에 딱 맞는 여정을 제안하는 전용 AI 큐레이터입니다.
+              트렌더(Trender)는 인스타그램 핫플레이스와 <br className="md:hidden" /> 셀럽의 리얼 방문 데이터를 기반으로 <br className="hidden md:block" />
+              당신의 취향에 딱 맞는 여정을 제안하는 <br className="md:hidden" /> 전용 AI 큐레이터입니다.
             </p>
             <p>
-              어렵게 검색할 필요 없습니다. 마음에 드는 곳을 슬롯에 담기만 하세요. <br className="hidden md:block" />
-              나머지는 트렌더가 가장 효율적이고 감각적인 동선으로 연결해 드립니다.
+              어렵게 검색할 필요 없습니다. <br className="md:hidden" /> 마음에 드는 곳을 슬롯에 담기만 하세요. <br className="hidden md:block" />
+              나머지는 트렌더가 가장 효율적이고 <br className="md:hidden" /> 감각적인 동선으로 연결해 드립니다.
             </p>
           </div>
         </div>
@@ -180,24 +185,24 @@ export default function Home() {
             {[
               {
                 title: "감각적인 슬롯 편집",
-                desc: "일정의 흐름을 한눈에 파악하고, 드래그 한 번으로 리듬감 있게 코스를 배치하세요.",
+                desc: "일정의 흐름을 한눈에 파악하고,\n드래그 한 번으로\n리듬감 있게 코스를 배치하세요.",
                 icon: "🛤️"
               },
               {
                 title: "취향 저격 AI 추천",
-                desc: "피드에 저장하기만 했던 힙한 장소들을 AI가 엄선하여 최적의 타이밍에 제안합니다.",
+                desc: "피드에 저장하기만 했던\n힙한 장소들을 AI가 엄선하여\n최적의 타이밍에 제안합니다.",
                 icon: "✨"
               },
               {
                 title: "실시간 여정 공유",
-                desc: "함께 가는 친구들과 실시간으로 아이디어를 나누며 우리만의 지도를 완성해 보세요.",
+                desc: "함께 가는 친구들과 실시간으로\n아이디어를 나누며 우리만의\n지도를 완성해 보세요.",
                 icon: "🤝"
               }
             ].map((feature, i) => (
-              <div key={i} className="bg-zinc-800/60 p-12 rounded-[2.5rem] border border-white/10 hover:border-trender-purple/30 transition-all group text-center shadow-2xl backdrop-blur-md">
-                <div className="text-5xl mb-8 group-hover:scale-110 transition-transform inline-block">{feature.icon}</div>
-                <h3 className="text-2xl font-bold mb-4">{feature.title}</h3>
-                <p className="text-zinc-400 leading-relaxed mx-auto max-w-[260px]">{feature.desc}</p>
+              <div key={i} className="card-shiny p-10 md:p-12 rounded-[2.5rem] border border-white/10 hover:border-trender-purple/30 transition-all group text-center shadow-2xl backdrop-blur-md">
+                <div className="text-6xl mb-8 group-hover:scale-110 transition-transform inline-block">{feature.icon}</div>
+                <h3 className="text-2xl md:text-3xl font-bold mb-6 break-keep">{feature.title}</h3>
+                <p className="text-zinc-400 text-base md:text-lg leading-relaxed mx-auto max-w-[360px] whitespace-pre-line">{feature.desc}</p>
               </div>
             ))}
           </div>
@@ -205,21 +210,21 @@ export default function Home() {
       </section>
 
       {/* Survey Section */}
-      <section className="px-8 py-32 bg-zinc-950 flex justify-center">
-        <div className="w-full max-w-4xl survey-card p-12 md:p-20 rounded-[3rem] text-center relative overflow-hidden">
+      <section className="px-8 py-32 bg-zinc-950 flex justify-center overflow-visible">
+        <div className="w-full max-w-4xl survey-card card-shiny p-12 md:p-20 rounded-[3rem] text-center relative overflow-visible">
           <div className="relative z-10 flex flex-col items-center">
             <h2 className="text-3xl md:text-5xl font-black mb-6">사용자 설문조사</h2>
-            <p className="text-zinc-400 text-lg mb-12 leading-relaxed max-w-2xl">
-              Trender 서비스 발전을 위해 여러분의 소중한 의견을 들려주세요.
+            <p className="text-zinc-300 text-xl md:text-2xl mb-16 leading-relaxed max-w-3xl">
+              Trender 서비스 발전을 위해 <br className="md:hidden" /> 여러분의 소중한 의견을 들려주세요.
             </p>
             <a
               href="https://bizcowork.co.kr/kanosurvey/171823"
               target="_blank"
-              className="px-12 py-5 rounded-full bg-trender-blue text-white font-bold text-xl hover:scale-105 transition-transform shadow-lg shadow-trender-blue/20"
+              className="px-16 py-6 rounded-full bg-trender-blue text-white font-bold text-2xl hover:scale-105 transition-transform shadow-lg shadow-trender-blue/20"
             >
               설문 참여하기
             </a>
-            <p className="mt-8 text-zinc-500 text-sm font-medium">
+            <p className="mt-12 text-zinc-500 text-lg font-medium">
               설문조사 종료일: <span className="text-zinc-300">2026-08-21</span>
             </p>
           </div>
