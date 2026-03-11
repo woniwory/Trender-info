@@ -101,16 +101,15 @@ export default function Home() {
 
       {/* Hero Section with Central Logo */}
       <section className="relative flex min-h-screen flex-col items-center justify-center px-8 text-center overflow-hidden">
-        <div className="animate-fade-in flex flex-col items-center justify-center text-center space-y-4">
+        <div className="animate-fade-in flex flex-col items-center justify-center text-center">
           <Image
             src="/logo_white.png"
             alt="Trender Logo"
-            width={120}
-            height={120}
-            className="mb-2 w-24 h-24 md:w-32 md:h-32"
+            width={400}
+            height={400}
+            className="mb-8 w-auto h-auto max-h-[300px]"
             priority
           />
-          <h2 className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-2">TRENDER</h2>
           <div className="max-w-4xl">
             <h1 className="text-2xl md:text-4xl font-extrabold leading-[1.3] px-4 break-keep whitespace-pre-line">
               <span className="gold-gradient">
