@@ -34,7 +34,8 @@ h3 {
 .glass-morphism {
   background: rgba(5, 5, 5, 0.8);
   backdrop-filter: blur(15px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.0);
+  /* Removed visible line */
 }
 
 .gold-gradient {
@@ -457,7 +458,8 @@ section {
 .card-shiny::after {
   content: '';
   position: absolute;
-  inset: 0.2px;
+  inset: 1px;
+  /* Robust offset for stable rendering */
   /* Offset to support ultra-thin border */
   background: #050505;
   border-radius: inherit;
